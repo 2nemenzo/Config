@@ -5,7 +5,7 @@
 }
 window#waybar {
     border-radius: 16px;
-    background: rgba(0, 0, 0, 0.75);  /* Increased from 0.38 to 0.75 */
+    background: rgba(0, 0, 0, 0.40);  /* Increased from 0.38 to 0.75 */
     color: #B8D4C6;  /* Brighter teal - was #93B1A6 */
 }
 tooltip {

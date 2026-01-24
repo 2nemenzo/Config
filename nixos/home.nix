@@ -78,7 +78,12 @@
     };
   };
   
-  programs.bash.enable = true;
+	programs.zsh = {
+	  enable = true;
+	  initExtra = ''
+	    PS1='%F{#B8D4C6}%n@%m%f:%F{#5C8374}%~%f$ '
+	  '';
+	};
   
   programs.git = {
     enable = true;
