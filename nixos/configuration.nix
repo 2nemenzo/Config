@@ -56,6 +56,7 @@
     git
     gcc
     gnumake
+    wofi
   ];
   
   # Enable openGL
