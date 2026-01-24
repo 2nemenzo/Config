@@ -20,6 +20,8 @@
     fd
     unzip
     wofi
+    cargo
+    rustc
   ];
   
   # Cursor theme settings for Wayland
@@ -45,15 +47,66 @@
       package = pkgs.vimix-icon-theme;
     };
   };
-  
-  # Rest of your config...
+
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
     vimAlias = true;
     viAlias = true;
-    colorschemes.catppuccin.enable = true;
-    plugins.lualine.enable = true;
+    
+    colorschemes.everforest = {
+      enable = true;
+      settings = {
+	background = "hard";
+      };
+    };
+    
+    plugins = {
+      telescope.enable = true;
+      treesitter.enable = true;
+      lualine.enable = true;
+      luasnip.enable = true;
+    };
+    
+    plugins.lsp = {
+      enable = true;
+      servers = {
+        lua_ls.enable = true;
+        rust_analyzer.enable = true;
+      };
+    };
+    
+    plugins.nvim-cmp = {
+      enable = true;
+      autoEnableSources = true;
+      sources = [
+	{name = "nvim_lsp";}
+	{name = "path";}
+	{name = "buffer";}
+	{name = "luasnip";}
+      ];
+      
+      mapping = {
+	"<CR>" = "cmp.mapping.confirm({ select = true })";
+	"<Tab>" = {
+	  action = ''
+	    function(fallback)
+	      local luasnip = require('luasnip')  -- Fixed: properly require luasnip
+	      if cmp.visible() then
+		cmp.select_next_item()
+	      elseif luasnip.expandable() then
+		luasnip.expand()
+	      elseif luasnip.expand_or_jumpable() then
+		luasnip.expand_or_jump()
+	      else
+		fallback()
+	      end
+	    end
+	  '';
+	  modes = [ "i" "s" ];
+	};
+      };
+    };
     
     opts = {
       number = true;
@@ -75,16 +128,21 @@
       cursorline = true;
       scrolloff = 10;
       confirm = true;
+
+      tabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      softtabstop = 2;
     };
   };
-  
-	programs.zsh = {
-	  enable = true;
-	  initExtra = ''
-	    PS1='%F{#B8D4C6}%n@%m%f:%F{#5C8374}%~%f$ '
-	  '';
-	};
-  
+
+  programs.zsh = {
+    enable = true;
+    initExtra = ''
+      PS1='%F{#B8D4C6}%n@%m%f:%F{#5C8374}%~%f$ '
+    '';
+  };
+
   programs.git = {
     enable = true;
     userName = "Nathaniel Nemenzo";

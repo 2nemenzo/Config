@@ -48,6 +48,7 @@
     git
     gcc
     gnumake
+    pavucontrol
   ];
   
   # Enable openGL
