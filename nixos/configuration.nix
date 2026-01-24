@@ -12,6 +12,14 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.firewall = {
+  	enable = true;
+	allowedTCPPorts = [ 80 443 ];
+	allowedUDPPortRanges = [
+		{ from = 4000; to = 4007; }
+		{ from = 8000; to = 8010; }
+	];
+  };
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -28,7 +36,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nat = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ];
     packages = with pkgs; [
       tree
     ];
@@ -43,22 +51,12 @@
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
     vim
     wget
-    foot
-    waybar
-    kitty
-    hyprpaper
     git
+    gcc
+    gnumake
   ];
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    viAlias = true;
-  };
   
   # Enable openGL
   hardware.graphics = {
