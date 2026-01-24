@@ -20,6 +20,7 @@
     ripgrep
     fd
     unzip
+    wofi
   ];
 
   programs.nixvim = {
@@ -67,7 +68,22 @@
     userEmail = "email";
   };
 
+	gtk = {
+	  enable = true;
+	  
+	  theme = {
+	    name = "vimix-dark-doder";
+	    package = pkgs.vimix-gtk-themes;
+	  };
+	  
+	  iconTheme = {
+	    name = "Vimix-Doder-Dark";
+	    package = pkgs.vimix-icon-theme;
+	  };
+	};
+
   xdg.configFile."hypr".source = ./config/hypr;
-  xdg.configFile."waybar".source = ./config/waybar;
   xdg.configFile."foot".source = ./config/foot;
+  xdg.configFile."waybar".source = ./config/waybar;
+  xdg.configFile."wofi".source = ./config/wofi;
 }

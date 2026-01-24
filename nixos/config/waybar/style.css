@@ -1,104 +1,86 @@
-@define-color bg    #1a1b26; 
-@define-color fg    #a9b1d6; 
-@define-color blk   #32344a; 
-@define-color red   #f7768e; 
-@define-color grn   #9ece6a; 
-@define-color ylw   #e0af68; 
-@define-color blu   #7aa2f7; 
-@define-color mag   #ad8ee6; 
-@define-color cyn   #0db9d7; 
-@define-color brblk #444b6a; 
-@define-color white #ffffff; 
-
 * {
-    font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 16px;
+    font-family: "JetBrainsMono Nerd Font, monospace, sans-serif";
     font-weight: bold;
+    font-size: 16px;
 }
 
 window#waybar {
-    background-color: @bg;
-    color: @fg;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.38);
+    color: #93B1A6;
+}
+
+tooltip {
+    background: rgba(0, 0, 0, 0.38);
+    border-radius: 14px;
+    border: 1px solid #21262d;
+}
+
+tooltip label {
+    padding: 6px 12px;
+    color: #93B1A6;
+}
+
+#workspaces {
+    border-radius: 16px 24px 24px 16px;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 #workspaces button {
-    padding: 0 6px;
-    color: @cyn;
-    background: transparent;
-    border-bottom: 3px solid @bg;
-}
-#workspaces button.active {
-    color: @cyn;
-    border-bottom: 3px solid @mag;
-}
-#workspaces button.empty {
-    color: @white;
-}
-#workspaces button.empty.active {
-    color: @cyn;
-    border-bottom: 3px solid @mag;
+    min-width: 28px;
+    border-radius: 20px;
+    margin: 8px 0;
 }
 
-#workspaces button.urgent {
-    background-color: @red;
+#workspaces button:not(:last-child) {
+    margin-right: 4px;
 }
 
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#workspaces button.active,
+#workspaces button.active:hover {
+    background: #5C8374;
+    color: #0d1117;
 }
 
 #clock,
-#custom-sep,
 #battery,
-#cpu,
-#memory,
-#disk,
+#pulseaudio,
 #network,
+#bluetooth,
+#temperature,
+#workspaces,
+#backlight {
+    padding: 0px 14px;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
 #tray {
-    padding: 0 8px;
-    color: @white;
-}
-
-#custom-sep {
-    color: @brblk;
-}
-
-#clock {
-    color: @cyn;
-    border-bottom: 4px solid @cyn;
-}
-
-#battery {
-    color: @mag;
-    border-bottom: 4px solid @mag;
-}
-
-#disk {
-    color: @ylw;
-    border-bottom: 4px solid @ylw;
-}
-
-#memory {
-    color: @mag;
-    border-bottom: 4px solid @mag;
-}
-
-#cpu {
-    color: @grn;
-    border-bottom: 4px solid @grn;
+    padding: 0px 16px;
 }
 
 #network {
-    color: @blu;
-    border-bottom: 4px solid @blu;
+    border-radius: 24px 0 0 24px;
+    padding-left: 24px;
 }
 
-#network.disconnected {
-    background-color: @red;
+#battery.warning {
+    color: orange;
 }
 
-#tray {
-    background-color: #2980b9;
+#battery.critical {
+    color: red;
 }
 
+#temperature.critical {
+    color: red;
+}
+
+#clock {
+    padding-right: 16px;
+    border-radius: 0 16px 16px 0;
+}

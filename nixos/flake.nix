@@ -23,7 +23,9 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.nat = import ./home.nix;
-	    extraSpecialArgs = { inherit nixvim; };
+	    extraSpecialArgs = { 
+		    inherit nixvim; 
+	    };
           };
         }
       ];
