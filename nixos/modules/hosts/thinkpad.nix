@@ -10,6 +10,7 @@ in
       nixos.base
       nixos.hyprland
       nixos.audio
+      nixos.laptop
     ];
 
     nixpkgs.hostPlatform = "x86_64-linux";
