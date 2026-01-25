@@ -3,7 +3,7 @@ let
   inherit (config.flake.modules) nixos homeManager;
 in
 {
-  configurations.nixos.nixos.module = {
+  configurations.nixos.nat-os.module = {
     imports = [
       nixos.hardware-desktop
       nixos.base
@@ -21,10 +21,13 @@ in
         imports = [
           homeManager.base
           homeManager.hyprland
+          homeManager.waybar
+          homeManager.wofi
           homeManager.nixvim
           homeManager.theming
           homeManager.dev-tools
-					homeManager.git
+          homeManager.git
+					homeManager.foot
         ];
       };
     };
