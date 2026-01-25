@@ -10,9 +10,9 @@
     home.pointerCursor = {
       gtk.enable = true;
       x11.enable = true;
-      package = pkgs.apple-cursor;
-      name = "macOS-White";
-      size = 20;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
     };
 
     gtk = {
