@@ -31,6 +31,7 @@
       gcc
       gnumake
       pavucontrol
+      swayidle
     ];
 
     # Allow unfree
