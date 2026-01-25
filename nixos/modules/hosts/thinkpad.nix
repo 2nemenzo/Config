@@ -1,14 +1,14 @@
+
 { config, inputs, ... }:
 let 
   inherit (config.flake.modules) nixos homeManager;
 in
 {
-  configurations.nixos.desktop.module = {
+  configurations.nixos.thinkpad.module = {
     imports = [
-      nixos.hardware-desktop
+      nixos.hardware-thinkpad
       nixos.base
       nixos.hyprland
-      nixos.nvidia
       nixos.audio
     ];
 
