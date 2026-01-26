@@ -1,14 +1,18 @@
-{ config, ... }:
+{ ... }:
 
 {
-  flake.modules.homeManager.hyprland = { pkgs, ... }: {
+  flake.modules.homeManager.hyprland = { config, pkgs, ... }:
+  let
+    colors = config.theme.colors;
+  in
+  {
     home.packages = with pkgs; [
       kitty
     ];
 
     wayland.windowManager.hyprland = {
       enable = true;
-      
+
       settings = {
         monitor = ",preferred,auto,1.0";
 
@@ -34,7 +38,7 @@
           gaps_in = 2;
           gaps_out = 2;
           border_size = 1;
-          "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+          "col.active_border" = "rgba(${colors.accent}ee) rgba(${colors.success}ee) 45deg";
           "col.inactive_border" = "rgba(595959aa)";
           resize_on_border = false;
           allow_tearing = false;

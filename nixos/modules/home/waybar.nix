@@ -1,17 +1,22 @@
 { ... }:
 
-let
-  colors = import ./colors.nix;
-in
 {
-  flake.modules.homeManager.waybar = { pkgs, ... }: {
+  flake.modules.homeManager.waybar = { config, pkgs, ... }:
+  let
+    colors = config.theme.colors;
+  in
+  {
     programs.waybar = {
       enable = true;
 
       settings = [{
         position = "bottom";
-        margin = "0 0 0 0";
-        mod = "dock";
+        layer = "top";
+        height = 40;
+        margin-bottom = 8;
+        margin-left = 0;
+        margin-right = 0;
+        exclusive = true;
 
         modules-center = [
           "tray"
@@ -47,16 +52,16 @@ in
             "10" = "10";
           };
           persistent-workspaces = {
-            "*" = "5";
+            "*" = 5;
           };
-          "on-click" = "activate";
-          "on-scroll-up" = "hyprctl dispatch workspace e+1";
-          "on-scroll-down" = "hyprctl dispatch workspace e-1";
+          on-click = "activate";
+          on-scroll-up = "hyprctl dispatch workspace e+1";
+          on-scroll-down = "hyprctl dispatch workspace e-1";
         };
 
         tray = {
           icon-size = 18;
-          spacing = 20;
+          spacing = 10;
         };
 
         network = {
@@ -126,56 +131,60 @@ in
       style = ''
         * {
           border: none;
-          border-radius: 0px;
-          font-family: "JetBrainsMono Nerd Font, monospace, sans-serif";
-          font-size: 16px;
+          border-radius: 0;
+          font-family: "JetBrainsMono Nerd Font";
+          font-size: 14px;
           min-height: 0;
-          padding: 0;
-          margin: 0;
         }
-        .modules-center {
-          background: #${colors.background};
-          padding: 6px 12px;
-          border-radius: 28px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
+
         window#waybar {
           background: transparent;
         }
+
+        .modules-center {
+          background: #${colors.background};
+          padding: 4px 16px;
+          border-radius: 24px;
+          margin: 4px 0;
+        }
+
         tooltip {
           background: #${colors.background};
           border: 1px solid #${colors.backgroundAlt};
           border-radius: 12px;
         }
+
         tooltip label {
           color: #${colors.foreground};
           padding: 6px;
         }
+
         #workspaces {
           background: transparent;
           padding: 0;
-          margin: 0 10px 0 10px;
-          border: none;
-          box-shadow: none;
+          margin: 0 8px;
         }
+
         #workspaces button {
-          padding: 0px 6px;
-          margin: 0px 2px;
-          border-radius: 16 px;
+          padding: 0 6px;
+          margin: 0 2px;
+          border-radius: 12px;
           color: #${colors.foregroundDim};
           background: transparent;
-          transition: all 0.3s ease-in-out;
+          transition: all 0.2s ease-in-out;
         }
+
         #workspaces button.active {
           background: linear-gradient(135deg, #${colors.gradientStart}, #${colors.gradientMid}, #${colors.gradientEnd});
           color: #${colors.background};
-          min-width: 40px;
-          transition: all 0.3s ease-in-out;
+          min-width: 32px;
         }
+
         #workspaces button:hover {
           background-color: #${colors.backgroundAlt};
           color: #${colors.foreground};
         }
+
         #workspaces button.urgent {
           background-color: #${colors.red};
           color: #${colors.background};
@@ -186,34 +195,50 @@ in
         #network,
         #bluetooth,
         #battery,
+        #tray,
         #submap,
         #window {
-          background-color: transparent;
+          color: #${colors.foreground};
+          background: transparent;
           padding: 0 8px;
-          margin: 0 5px;
-          border-radius: 0;
-          border: none;
-          box-shadow: none;
+          margin: 0 2px;
+        }
+
+        #tray {
+          margin-right: 4px;
+        }
+
+        #tray > .passive {
+          -gtk-icon-effect: dim;
+        }
+
+        #tray > .needs-attention {
+          -gtk-icon-effect: highlight;
+          background-color: #${colors.red};
         }
 
         #submap {
           color: #${colors.accent};
         }
 
-        #clock {
-          color: #${colors.foreground};
-          margin: 0;
+        #battery.warning {
+          color: #${colors.warning};
         }
 
-        #battery.warning {
-            color: #${colors.warning};
-        }
         #battery.critical {
-            color: #${colors.critical};
+          color: #${colors.critical};
         }
-        #clock {
-            padding-right: 16px;
-            border-radius: 0;
+
+        #network.disconnected {
+          color: #${colors.foregroundDim};
+        }
+
+        #bluetooth.disabled {
+          color: #${colors.foregroundDim};
+        }
+
+        #pulseaudio.muted {
+          color: #${colors.foregroundDim};
         }
       '';
     };
