@@ -28,9 +28,9 @@
     services.thermald.enable = true;
     services.system76-scheduler.enable = lib.mkDefault false;
 
-    services.logind = {
-      lidSwitch = "suspend";
-      lidSwitchExternalPower = "lock";
+    services.logind.settings.Login = {
+      HandleLidSwitch = "suspend";
+      HandleLidSwitchExternalPower = "lock";
     };
 
     services.fwupd.enable = true;

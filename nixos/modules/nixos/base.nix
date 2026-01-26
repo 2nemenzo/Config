@@ -15,9 +15,9 @@
 
     # Power button behavior - let Hyprland handle it via XF86PowerOff keybind
     # Setting to "ignore" allows the key event to pass through to the compositor
-    services.logind = {
-      powerKey = "ignore";
-      powerKeyLongPress = "poweroff";
+    services.logind.settings.Login = {
+      HandlePowerKey = "ignore";
+      HandlePowerKeyLongPress = "poweroff";
     };
 
     # User account
