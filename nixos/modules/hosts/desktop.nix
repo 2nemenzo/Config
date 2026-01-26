@@ -8,6 +8,7 @@ in
       nixos.hardware-desktop
       nixos.base
       nixos.hyprland
+      nixos.greetd
       nixos.nvidia
       nixos.audio
     ];
@@ -22,6 +23,7 @@ in
           homeManager.colors
           homeManager.base
           homeManager.hyprland
+          homeManager.hyprlock
           homeManager.waybar
           homeManager.wofi
           homeManager.nixvim
