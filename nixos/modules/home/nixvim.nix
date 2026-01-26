@@ -2,7 +2,7 @@
 
 {
   flake.modules.homeManager.nixvim = { pkgs, ... }: {
-    imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+    imports = [ inputs.nixvim.homeModules.nixvim ];
 
     programs.nixvim = {
       enable = true;
@@ -150,6 +150,9 @@
       # Plugins
       # ========================================
       plugins = {
+        # ---- Web Devicons (required by telescope) ----
+        web-devicons.enable = true;
+
         # ---- Which-Key (shows pending keybinds) ----
         which-key = {
           enable = true;

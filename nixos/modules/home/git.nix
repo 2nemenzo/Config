@@ -2,15 +2,16 @@
 
 {
   flake.modules.homeManager.git = {
-	  programs.git = {
-		  enable = true;
-			userName = "2nemenzo";
-			userEmail = "47703615+2nemenzo@users.noreply.github.com";
-
-			extraConfig = {
-				init.defaultBranch = "main";
-				pull.rebase = true;
-			};
-		};
-	};
+    programs.git = {
+      enable = true;
+      settings = {
+        user = {
+          name = "2nemenzo";
+          email = "47703615+2nemenzo@users.noreply.github.com";
+        };
+        init.defaultBranch = "main";
+        pull.rebase = true;
+      };
+    };
+  };
 }

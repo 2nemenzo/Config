@@ -13,10 +13,11 @@
     # Timezone
     time.timeZone = config.timezone;
 
-    # Power button behavior - suspend when pressed
-    services.logind = {
-      powerKey = "suspend";
-      powerKeyLongPress = "poweroff";
+    # Power button behavior - let Hyprland handle it via XF86PowerOff keybind
+    # Setting to "ignore" allows the key event to pass through to the compositor
+    services.logind.settings.Login = {
+      HandlePowerKey = "ignore";
+      HandlePowerKeyLongPress = "poweroff";
     };
 
     # User account
