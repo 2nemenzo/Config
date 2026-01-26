@@ -1,7 +1,11 @@
 { ... }:
 
 {
-  flake.modules.nixos.laptop = { lib, ... }: {
+  flake.modules.nixos.laptop = { lib, pkgs, ... }: {
+    # Brightness control for laptop displays
+    environment.systemPackages = with pkgs; [
+      brightnessctl
+    ];
     services.tlp = {
       enable = true;
       settings = {
