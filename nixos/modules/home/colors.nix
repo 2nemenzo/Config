@@ -7,117 +7,116 @@
   in
   {
     options.theme.colors = {
-      # Base colors
       background = mkOption {
         type = types.str;
-        default = "0d1117";
-        description = "Primary background color";
+        default = "161616";
+        description = "Primary background color (oxocarbon base00)";
       };
       backgroundAlt = mkOption {
         type = types.str;
-        default = "21262d";
-        description = "Alternative/secondary background color";
+        default = "262626";
+        description = "Alternative/secondary background color (oxocarbon base01 ~8.5% blend)";
       };
       backgroundLight = mkOption {
         type = types.str;
-        default = "3b4252";
-        description = "Light background color";
+        default = "393939";
+        description = "Light background color (oxocarbon base02 ~18% blend)";
       };
       foreground = mkOption {
         type = types.str;
-        default = "B8D4C6";
-        description = "Primary foreground/text color";
+        default = "f2f4f8";
+        description = "Primary foreground/text color (oxocarbon base05 ~95% blend)";
       };
       foregroundDim = mkOption {
         type = types.str;
-        default = "93B1A6";
-        description = "Dimmed foreground color";
+        default = "dde1e6";
+        description = "Dimmed foreground color (oxocarbon base04 ~82% blend)";
       };
 
-      # Primary accent
+      # Primary accent (oxocarbon blue)
       primary = mkOption {
         type = types.str;
-        default = "6BA4E6";
-        description = "Primary accent color";
+        default = "78a9ff";
+        description = "Primary accent color (oxocarbon base09 - blue)";
       };
       primaryBright = mkOption {
         type = types.str;
-        default = "7DB5F0";
-        description = "Bright primary accent color";
+        default = "33b1ff";
+        description = "Bright primary accent color (oxocarbon base11 - light blue)";
       };
 
-      # Secondary accent (cyan)
+      # Secondary accent (oxocarbon cyan/teal)
       accent = mkOption {
         type = types.str;
-        default = "33ccff";
-        description = "Secondary accent color (cyan)";
+        default = "3ddbd9";
+        description = "Secondary accent color (oxocarbon base08 - bright cyan)";
       };
       accentDim = mkOption {
         type = types.str;
-        default = "6B9B8A";
-        description = "Dimmed accent color";
+        default = "08bdba";
+        description = "Dimmed accent color (oxocarbon base07 - teal)";
       };
 
       # Semantic colors
       red = mkOption {
         type = types.str;
-        default = "D3826E";
-        description = "Red color";
+        default = "ee5396";
+        description = "Red/pink color (oxocarbon base10)";
       };
       redBright = mkOption {
         type = types.str;
-        default = "E89580";
-        description = "Bright red color";
+        default = "ff7eb6";
+        description = "Bright red/pink color (oxocarbon base12)";
       };
       green = mkOption {
         type = types.str;
-        default = "8EAC50";
-        description = "Green color";
+        default = "42be65";
+        description = "Green color (oxocarbon base13)";
       };
       greenBright = mkOption {
         type = types.str;
-        default = "9DBE62";
-        description = "Bright green color";
+        default = "42be65";
+        description = "Bright green color (oxocarbon base13)";
       };
       yellow = mkOption {
         type = types.str;
-        default = "D3D04F";
-        description = "Yellow color";
+        default = "82cfff";
+        description = "Yellow color - using light cyan (oxocarbon base15)";
       };
       yellowBright = mkOption {
         type = types.str;
-        default = "E5E161";
-        description = "Bright yellow color";
+        default = "82cfff";
+        description = "Bright yellow color - using light cyan (oxocarbon base15)";
       };
       blue = mkOption {
         type = types.str;
-        default = "6BA4E6";
-        description = "Blue color";
+        default = "78a9ff";
+        description = "Blue color (oxocarbon base09)";
       };
       blueBright = mkOption {
         type = types.str;
-        default = "7DB5F0";
-        description = "Bright blue color";
+        default = "33b1ff";
+        description = "Bright blue color (oxocarbon base11)";
       };
       magenta = mkOption {
         type = types.str;
-        default = "7B9E87";
-        description = "Magenta color";
+        default = "be95ff";
+        description = "Magenta/purple color (oxocarbon base14)";
       };
       magentaBright = mkOption {
         type = types.str;
-        default = "8CAF98";
-        description = "Bright magenta color";
+        default = "ff7eb6";
+        description = "Bright magenta/pink color (oxocarbon base12)";
       };
       cyan = mkOption {
         type = types.str;
-        default = "6B9B8A";
-        description = "Cyan color";
+        default = "08bdba";
+        description = "Cyan/teal color (oxocarbon base07)";
       };
       cyanBright = mkOption {
         type = types.str;
-        default = "7DACAB";
-        description = "Bright cyan color";
+        default = "3ddbd9";
+        description = "Bright cyan color (oxocarbon base08)";
       };
 
       # UI-specific
@@ -133,47 +132,46 @@
       };
       overlay = mkOption {
         type = types.str;
-        default = "000000bf";
-        description = "Overlay color (rgba format)";
+        default = "131313bf";
+        description = "Overlay color using oxocarbon blend (rgba format)";
       };
 
       # Status colors
       warning = mkOption {
         type = types.str;
-        default = "D3D04F";
-        description = "Warning status color";
+        default = "be95ff";
+        description = "Warning status color (oxocarbon base14 - purple)";
       };
       critical = mkOption {
         type = types.str;
-        default = "D3826E";
-        description = "Critical/error status color";
+        default = "ee5396";
+        description = "Critical/error status color (oxocarbon base10 - pink)";
       };
       success = mkOption {
         type = types.str;
-        default = "8EAC50";
-        description = "Success status color";
+        default = "42be65";
+        description = "Success status color (oxocarbon base13 - green)";
       };
       info = mkOption {
         type = types.str;
-        default = "6BA4E6";
-        description = "Info status color";
+        default = "78a9ff";
+        description = "Info status color (oxocarbon base09 - blue)";
       };
 
-      # Gradients (for active states)
       gradientStart = mkOption {
         type = types.str;
-        default = "6BA4E6";
-        description = "Gradient start color";
+        default = "78a9ff";
+        description = "Gradient start color (oxocarbon base09 - blue)";
       };
       gradientMid = mkOption {
         type = types.str;
-        default = "7DB5F0";
-        description = "Gradient middle color";
+        default = "33b1ff";
+        description = "Gradient middle color (oxocarbon base11 - light blue)";
       };
       gradientEnd = mkOption {
         type = types.str;
-        default = "33ccff";
-        description = "Gradient end color";
+        default = "3ddbd9";
+        description = "Gradient end color (oxocarbon base08 - cyan)";
       };
     };
   };

@@ -21,9 +21,8 @@
       # ========================================
       # Colorscheme
       # ========================================
-      colorschemes.everforest = {
+      colorschemes.oxocarbon = {
         enable = true;
-        settings.background = "hard";
       };
 
       # ========================================
