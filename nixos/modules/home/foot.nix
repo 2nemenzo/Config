@@ -21,7 +21,7 @@
           regular1 = "D3826E";   # red
           regular2 = "8EAC50";   # green
           regular3 = "D3D04F";   # yellow
-          regular4 = "5C8374";   # blue
+          regular4 = "6BA4E6";   # blue - Changed from #5C8374 (teal) to light blue
           regular5 = "7B9E87";   # magenta
           regular6 = "6B9B8A";   # cyan
           regular7 = "B8D4C6";   # white
@@ -31,7 +31,7 @@
           bright1 = "E89580";    # bright red
           bright2 = "9DBE62";    # bright green
           bright3 = "E5E161";    # bright yellow
-          bright4 = "6E9485";    # bright blue
+          bright4 = "7DB5F0";    # bright blue - Changed from #6E9485 to brighter light blue
           bright5 = "8CAF98";    # bright magenta
           bright6 = "7DACAB";    # bright cyan
           bright7 = "D0E7DA";    # bright white

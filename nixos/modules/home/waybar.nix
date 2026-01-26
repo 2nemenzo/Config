@@ -6,28 +6,49 @@
       enable = true;
 
       settings = [{
-        position = "top";
-        margin = "8 16 0";
+        position = "bottom";
+        margin = "0 0 0 0";
         mod = "dock";
 
-        modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "hyprland/window" ];
-        modules-right = [
+        modules-center = [ 
           "tray"
+          "clock"
+          "hyprland/workspaces"
+          "pulseaudio"
           "network"
           "bluetooth"
           "battery"
-          "temperature"
-          "pulseaudio"
-          "clock"
         ];
-
+        
         "hyprland/window" = {
           format = "{}";
         };
 
+        "hyprland/submap" = {
+          format = "{}";
+          tooltip = false;
+        };
+
         "hyprland/workspaces" = {
-          sort-by = "name";
+          format = "{icon}";
+          format-icons = {
+            "1" = "1";
+            "2" = "2";
+            "3" = "3";
+            "4" = "4";
+            "5" = "5";
+            "6" = "6";
+            "7" = "7";
+            "8" = "8";
+            "9" = "9";
+            "10" = "10";
+          };
+          persistent-workspaces = {
+            "*" = "5";
+          };
+          "on-click" = "activate";
+          "on-scroll-up" = "hyprctl dispatch workspace e+1";
+          "on-scroll-down" = "hyprctl dispatch workspace e-1";
         };
 
         tray = {
@@ -69,13 +90,6 @@
           tooltip-format = "{capacity}%";
         };
 
-        temperature = {
-          hwmon-path-abs = "/sys/devices/platform/coretemp.0/hwmon";
-          input-filename = "temp1_input";
-          format = " {temperatureC}°C";
-          critical-threshold = 80;
-        };
-
         pulseaudio = {
           format = "{icon} {volume}%";
           format-muted = "󰝟 0%";
@@ -108,75 +122,95 @@
 
       style = ''
         * {
-            font-family: "JetBrainsMono Nerd Font, monospace, sans-serif";
-            font-weight: bold;
-            font-size: 14px;
+          border: none;
+          border-radius: 0px;
+          font-family: "JetBrainsMono Nerd Font, monospace, sans-serif";
+          font-size: 16px;
+          min-height: 0;
+          padding: 0;
+          margin: 0;
+        }
+        .modules-center {
+          background: #TODO;
+          padding: 6px 12px;
+          border-radius: 28px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         window#waybar {
-            border-radius: 16px;
-            background: rgba(0, 0, 0, 0.40);
-            color: #B8D4C6;
+          background: transparent;
         }
         tooltip {
-            background: rgba(0, 0, 0, 0.75);
-            border-radius: 14px;
-            border: 1px solid #21262d;
+          background: #TODO;
+          border: 1px solid #TODO;
+          border-radius: 12px;
         }
         tooltip label {
-            padding: 6px 12px;
-            color: #B8D4C6;
+          color: #TODO;
+          padding: 6px;
         }
         #workspaces {
-            border-radius: 16px 24px 24px 16px;
-            margin: 0;
-            background-color: rgba(255, 255, 255, 0.08);
+          background: transparent;
+          padding: 0;
+          margin: 0 10px 0 10px;
+          border: none;
+          box-shadow: none;
         }
         #workspaces button {
-            min-width: 28px;
-            border-radius: 20px;
-            margin: 4px 0;
+          padding: 0px 6px;
+          margin: 0px 2px;
+          border-radius: 16 px;
+          color: #TODO;
+          background: transparent;
+          transition: all 0.3s ease-in-out;
         }
-        #workspaces button:not(:last-child) {
-            margin-right: 4px;
+        #workspaces button.active {
+          background: linear-gradient(135deg, #TODO, #TODO, #TODO);
+          color: #TODO;
+          min-width: 40px;
+          transition: all 0.3s ease-in-out;
         }
         #workspaces button:hover {
-            background: rgba(255, 255, 255, 0.08);
+          background-color: #TODO;
+          color: #TODO;
         }
-        #workspaces button.active,
-        #workspaces button.active:hover {
-            background: #5C8374;
-            color: #0d1117;
+        #workspaces button.urgent {
+          background-color: #TODO;
+          color: #TODO;
         }
+
         #clock,
-        #battery,
         #pulseaudio,
         #network,
         #bluetooth,
-        #temperature,
-        #workspaces,
-        #backlight {
-            padding: 2px 14px;
-            background-color: rgba(255, 255, 255, 0.08);
+        #battery,
+        #submap,
+        #window {
+          background-color: #TODO;
+          padding: 0 8px;
+          margin: 0 5px;
+          border-radius: 0;
+          border: none;
+          box-shadow: none;
         }
-        #tray {
-            padding: 0px 16px;
+
+        #submap {
+          color: #TODO;
         }
-        #network {
-            border-radius: 24px 0 0 24px;
-            padding-left: 24px;
+
+        #clock {
+          color: #TODO;
+          margin: 0;
         }
+
         #battery.warning {
             color: orange;
         }
         #battery.critical {
             color: red;
         }
-        #temperature.critical {
-            color: red;
-        }
         #clock {
             padding-right: 16px;
-            border-radius: 0 16px 16px 0;
+            border-radius: 0;
         }
       '';
     };

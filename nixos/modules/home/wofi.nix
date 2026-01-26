@@ -24,7 +24,7 @@
             padding: 8px 14px;
             border: none;
             border-radius: 12px;
-            color: #B8D4C6;
+            color: #33ccff;
             background-color: rgba(255, 255, 255, 0.08);
         }
 
@@ -57,7 +57,7 @@
         }
 
         #entry:selected {
-            background-color: #5C8374;
+            background-color: #6BA4E6;
             color: #0d1117;
         }
 
