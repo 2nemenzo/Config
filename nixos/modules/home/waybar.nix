@@ -13,7 +13,7 @@
         position = "bottom";
         layer = "top";
         height = 40;
-        margin-bottom = 8;
+        margin-bottom = 4;
         margin-left = 0;
         margin-right = 0;
         exclusive = true;
