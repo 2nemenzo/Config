@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  colors = import ./colors.nix;
+in
 {
   flake.modules.homeManager.waybar = { pkgs, ... }: {
     programs.waybar = {
@@ -10,7 +13,7 @@
         margin = "0 0 0 0";
         mod = "dock";
 
-        modules-center = [ 
+        modules-center = [
           "tray"
           "clock"
           "hyprland/workspaces"
@@ -19,7 +22,7 @@
           "bluetooth"
           "battery"
         ];
-        
+
         "hyprland/window" = {
           format = "{}";
         };
@@ -111,10 +114,10 @@
           tooltip-format = "{calendar}";
           calendar = {
             format = {
-              months = "<span color='#D3D04F'><b>{}</b></span>";
-              days = "<span color='#93B1A6'><b>{}</b></span>";
-              weekdays = "<span color='#8EAC50'><b>{}</b></span>";
-              today = "<span color='#8EAC50'><b><u>{}</u></b></span>";
+              months = "<span color='#${colors.yellow}'><b>{}</b></span>";
+              days = "<span color='#${colors.foregroundDim}'><b>{}</b></span>";
+              weekdays = "<span color='#${colors.green}'><b>{}</b></span>";
+              today = "<span color='#${colors.green}'><b><u>{}</u></b></span>";
             };
           };
         };
@@ -131,7 +134,7 @@
           margin: 0;
         }
         .modules-center {
-          background: #TODO;
+          background: #${colors.background};
           padding: 6px 12px;
           border-radius: 28px;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -140,12 +143,12 @@
           background: transparent;
         }
         tooltip {
-          background: #TODO;
-          border: 1px solid #TODO;
+          background: #${colors.background};
+          border: 1px solid #${colors.backgroundAlt};
           border-radius: 12px;
         }
         tooltip label {
-          color: #TODO;
+          color: #${colors.foreground};
           padding: 6px;
         }
         #workspaces {
@@ -159,23 +162,23 @@
           padding: 0px 6px;
           margin: 0px 2px;
           border-radius: 16 px;
-          color: #TODO;
+          color: #${colors.foregroundDim};
           background: transparent;
           transition: all 0.3s ease-in-out;
         }
         #workspaces button.active {
-          background: linear-gradient(135deg, #TODO, #TODO, #TODO);
-          color: #TODO;
+          background: linear-gradient(135deg, #${colors.gradientStart}, #${colors.gradientMid}, #${colors.gradientEnd});
+          color: #${colors.background};
           min-width: 40px;
           transition: all 0.3s ease-in-out;
         }
         #workspaces button:hover {
-          background-color: #TODO;
-          color: #TODO;
+          background-color: #${colors.backgroundAlt};
+          color: #${colors.foreground};
         }
         #workspaces button.urgent {
-          background-color: #TODO;
-          color: #TODO;
+          background-color: #${colors.red};
+          color: #${colors.background};
         }
 
         #clock,
@@ -185,7 +188,7 @@
         #battery,
         #submap,
         #window {
-          background-color: #TODO;
+          background-color: transparent;
           padding: 0 8px;
           margin: 0 5px;
           border-radius: 0;
@@ -194,19 +197,19 @@
         }
 
         #submap {
-          color: #TODO;
+          color: #${colors.accent};
         }
 
         #clock {
-          color: #TODO;
+          color: #${colors.foreground};
           margin: 0;
         }
 
         #battery.warning {
-            color: orange;
+            color: #${colors.warning};
         }
         #battery.critical {
-            color: red;
+            color: #${colors.critical};
         }
         #clock {
             padding-right: 16px;

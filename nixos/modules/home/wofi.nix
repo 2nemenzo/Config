@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  colors = import ./colors.nix;
+in
 {
   flake.modules.homeManager.wofi = { pkgs, ... }: {
     programs.wofi = {
@@ -7,7 +10,7 @@
 
       style = ''
         * {
-            font-family: "JetBrainsMono Nerd Font, monospace, sans-serif";
+            font-family: "JetBrainsMono Nerd Font", monospace, sans-serif;
             font-weight: bold;
             font-size: 16px;
         }
@@ -16,7 +19,7 @@
             margin: 0px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            background-color: rgba(0, 0, 0, 0.75);
+            background-color: rgba(13, 17, 23, 0.9);
         }
 
         #input {
@@ -24,7 +27,7 @@
             padding: 8px 14px;
             border: none;
             border-radius: 12px;
-            color: #33ccff;
+            color: #${colors.accent};
             background-color: rgba(255, 255, 255, 0.08);
         }
 
@@ -48,7 +51,7 @@
         #text {
             margin: 5px;
             border: none;
-            color: #B8D4C6;
+            color: #${colors.foreground};
         }
 
         #entry {
@@ -57,8 +60,8 @@
         }
 
         #entry:selected {
-            background-color: #6BA4E6;
-            color: #0d1117;
+            background-color: #${colors.primary};
+            color: #${colors.background};
         }
 
         #entry:hover {

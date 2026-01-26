@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  colors = import ./colors.nix;
+in
 {
   flake.modules.homeManager.foot = { pkgs, ... }: {
     programs.foot = {
@@ -12,29 +15,29 @@
         };
 
         colors = {
-          foreground = "B8D4C6";
-          background = "0d1117";
+          foreground = colors.foreground;
+          background = colors.background;
           alpha = "0.9";
 
           # Normal/regular colors (color palette 0-7)
-          regular0 = "21262d";   # black
-          regular1 = "D3826E";   # red
-          regular2 = "8EAC50";   # green
-          regular3 = "D3D04F";   # yellow
-          regular4 = "6BA4E6";   # blue - Changed from #5C8374 (teal) to light blue
-          regular5 = "7B9E87";   # magenta
-          regular6 = "6B9B8A";   # cyan
-          regular7 = "B8D4C6";   # white
+          regular0 = colors.backgroundAlt;   # black
+          regular1 = colors.red;             # red
+          regular2 = colors.green;           # green
+          regular3 = colors.yellow;          # yellow
+          regular4 = colors.blue;            # blue
+          regular5 = colors.magenta;         # magenta
+          regular6 = colors.cyan;            # cyan
+          regular7 = colors.foreground;      # white
 
           # Bright colors (color palette 8-15)
-          bright0 = "3b4252";    # bright black
-          bright1 = "E89580";    # bright red
-          bright2 = "9DBE62";    # bright green
-          bright3 = "E5E161";    # bright yellow
-          bright4 = "7DB5F0";    # bright blue - Changed from #6E9485 to brighter light blue
-          bright5 = "8CAF98";    # bright magenta
-          bright6 = "7DACAB";    # bright cyan
-          bright7 = "D0E7DA";    # bright white
+          bright0 = colors.backgroundLight;  # bright black
+          bright1 = colors.redBright;        # bright red
+          bright2 = colors.greenBright;      # bright green
+          bright3 = colors.yellowBright;     # bright yellow
+          bright4 = colors.blueBright;       # bright blue
+          bright5 = colors.magentaBright;    # bright magenta
+          bright6 = colors.cyanBright;       # bright cyan
+          bright7 = "D0E7DA";                # bright white
 
           # Dimmed colors
           dim0 = "4A5A54";
