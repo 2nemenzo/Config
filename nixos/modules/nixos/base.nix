@@ -13,8 +13,11 @@
     # Timezone
     time.timeZone = config.timezone;
 
-    # Auto login
-    services.getty.autologinUser = config.userName;
+    # Power button behavior - suspend when pressed
+    services.logind = {
+      powerKey = "suspend";
+      powerKeyLongPress = "poweroff";
+    };
 
     # User account
     users.users.${config.userName} = {
@@ -31,7 +34,6 @@
       gcc
       gnumake
       pavucontrol
-      swayidle
     ];
 
     # Allow unfree

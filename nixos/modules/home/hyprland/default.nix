@@ -174,9 +174,10 @@
           ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
         ];
 
-        # Mute key (bindl = works when locked, no repeat needed)
+        # Mute key and power button (bindl = works when locked, no repeat needed)
         bindl = [
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86PowerOff, exec, systemctl suspend"
         ];
 
         windowrulev2 = [

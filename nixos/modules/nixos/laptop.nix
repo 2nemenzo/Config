@@ -31,7 +31,6 @@
     services.logind = {
       lidSwitch = "suspend";
       lidSwitchExternalPower = "lock";
-      powerKey = "suspend";
     };
 
     services.fwupd.enable = true;
