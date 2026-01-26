@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  flake.modules.homeManager.bash = { config, pkgs, ... }:
+  flake.modules.homeManager.bash = { config, pkgs, lib, ... }:
   let
     colors = config.theme.colors;
     # Convert hex to RGB for ANSI escape sequences
@@ -17,7 +17,7 @@
         else if c == "d" || c == "D" then 13
         else if c == "e" || c == "E" then 14
         else 15
-      )) 0 (builtins.stringToCharacters s);
+      )) 0 (lib.stringToCharacters s);
     in "${toString (toInt r)};${toString (toInt g)};${toString (toInt b)}";
   in
   {
