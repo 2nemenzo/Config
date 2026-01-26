@@ -4,6 +4,7 @@
   flake.modules.homeManager.hyprland = { config, pkgs, ... }:
   let
     colors = config.theme.colors;
+    wallpaper = ./wallpaper.png;
   in
   {
     home.packages = with pkgs; [
@@ -188,8 +189,8 @@
     services.hyprpaper = {
       enable = true;
       settings = {
-        preload = [ "~/Wallpapers/trees.png" ];
-        wallpaper = [ ",~/Wallpapers/trees.png" ];
+        preload = [ "${wallpaper}" ];
+        wallpaper = [ ",${wallpaper}" ];
       };
     };
   };
