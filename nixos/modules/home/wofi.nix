@@ -1,10 +1,11 @@
 { ... }:
 
-let
-  colors = import ./colors.nix;
-in
 {
-  flake.modules.homeManager.wofi = { pkgs, ... }: {
+  flake.modules.homeManager.wofi = { config, pkgs, ... }:
+  let
+    colors = config.theme.colors;
+  in
+  {
     programs.wofi = {
       enable = true;
 
