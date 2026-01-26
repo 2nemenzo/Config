@@ -29,6 +29,7 @@ in
           homeManager.dev-tools
           homeManager.git
           homeManager.foot
+          homeManager.bash
         ];
       };
     };
