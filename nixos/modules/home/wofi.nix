@@ -1,16 +1,17 @@
 { ... }:
 
-let
-  colors = import ./colors.nix;
-in
 {
-  flake.modules.homeManager.wofi = { pkgs, ... }: {
+  flake.modules.homeManager.wofi = { pkgs, config, ... }:
+  let
+    colors = config.theme.colors;
+  in
+  {
     programs.wofi = {
       enable = true;
 
       style = ''
         * {
-            font-family: "JetBrainsMono Nerd Font", monospace, sans-serif;
+            font-family: "JetBrainsMono Nerd Font, monospace, sans-serif";
             font-weight: bold;
             font-size: 16px;
         }

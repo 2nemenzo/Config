@@ -1,10 +1,11 @@
 { ... }:
 
-let
-  colors = import ./colors.nix;
-in
 {
-  flake.modules.homeManager.foot = { pkgs, ... }: {
+  flake.modules.homeManager.foot = { pkgs, config, ... }:
+  let
+    colors = config.theme.colors;
+  in
+  {
     programs.foot = {
       enable = true;
 

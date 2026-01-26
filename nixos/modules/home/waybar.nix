@@ -1,10 +1,11 @@
 { ... }:
 
-let
-  colors = import ./colors.nix;
-in
 {
-  flake.modules.homeManager.waybar = { pkgs, ... }: {
+  flake.modules.homeManager.waybar = { pkgs, config, ... }:
+  let
+    colors = config.theme.colors;
+  in
+  {
     programs.waybar = {
       enable = true;
 

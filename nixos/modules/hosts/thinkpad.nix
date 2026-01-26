@@ -20,6 +20,7 @@ in
       useUserPackages = true;
       users.${config.userName} = {
         imports = [
+          homeManager.colors
           homeManager.base
           homeManager.hyprland
           homeManager.waybar
@@ -28,7 +29,7 @@ in
           homeManager.theming
           homeManager.dev-tools
           homeManager.git
-	  homeManager.foot
+          homeManager.foot
         ];
       };
     };
