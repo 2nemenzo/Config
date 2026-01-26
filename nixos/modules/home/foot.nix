@@ -11,7 +11,7 @@
 
       settings = {
         main = {
-          font = "JetBrainsMono NF:size=14";
+          font = "JetBrainsMono NF:size=12";
           pad = "4x4";
         };
 
