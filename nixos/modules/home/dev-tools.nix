@@ -8,6 +8,8 @@
       unzip
       cargo
       rustc
+      rustfmt
+      clippy
     ];
 
     home.sessionPath = [
