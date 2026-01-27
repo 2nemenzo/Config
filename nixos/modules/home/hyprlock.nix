@@ -22,14 +22,15 @@
         }];
 
         input-field = [{
-          size = "300, 30";
+          size = "400, 50";
           outline_thickness = 0;
-          dots_size = 0.2;
+          dots_size = 0.25;
           dots_spacing = 0.3;
           dots_center = true;
           outer_color = "rgb(${colors.background})";
           inner_color = "rgb(${colors.background})";
           font_color = "rgb(${colors.foreground})";
+          font_size = 18;
           fade_on_empty = false;
           placeholder_text = "Password:";
           hide_input = false;
