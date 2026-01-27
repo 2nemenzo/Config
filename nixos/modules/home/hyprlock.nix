@@ -15,50 +15,38 @@
           grace = 0;
         };
 
+        # Solid dark background like tuigreet
         background = [{
-          path = "screenshot";
-          blur_passes = 3;
-          blur_size = 8;
-          noise = 0.01;
-          contrast = 0.9;
-          brightness = 0.8;
+          path = "";
+          color = "rgb(${colors.background})";
         }];
 
         input-field = [{
-          size = "300, 50";
-          outline_thickness = 2;
+          size = "400, 50";
+          outline_thickness = 0;
           dots_size = 0.25;
-          dots_spacing = 0.15;
+          dots_spacing = 0.3;
           dots_center = true;
-          outer_color = "rgb(${colors.primary})";
+          outer_color = "rgb(${colors.background})";
           inner_color = "rgb(${colors.background})";
           font_color = "rgb(${colors.foreground})";
+          font_size = 18;
           fade_on_empty = false;
-          placeholder_text = "<i>Password...</i>";
+          placeholder_text = "Password:";
           hide_input = false;
-          position = "0, -20";
+          position = "0, 0";
           halign = "center";
           valign = "center";
         }];
 
         label = [
-          # Time
+          # Simple time display like tuigreet
           {
             text = "$TIME";
-            color = "rgb(${colors.foreground})";
-            font_size = 64;
-            font_family = "JetBrainsMono Nerd Font";
-            position = "0, 150";
-            halign = "center";
-            valign = "center";
-          }
-          # Date
-          {
-            text = "cmd[update:3600000] date '+%A, %B %d'";
             color = "rgb(${colors.foregroundDim})";
-            font_size = 20;
-            font_family = "JetBrainsMono Nerd Font";
-            position = "0, 80";
+            font_size = 16;
+            font_family = "monospace";
+            position = "0, 50";
             halign = "center";
             valign = "center";
           }
