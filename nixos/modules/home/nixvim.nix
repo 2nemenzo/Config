@@ -144,13 +144,6 @@
           action = "<C-w><C-k>";
           options.desc = "Move focus to the upper window";
         }
-        # Ctrl+click to jump to definition (like IntelliJ/VSCode)
-        {
-          mode = "n";
-          key = "<C-LeftMouse>";
-          action = "<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>";
-          options.desc = "Jump to definition (Ctrl+click)";
-        }
       ];
 
       # ========================================
@@ -172,6 +165,7 @@
               { __unkeyed-1 = "<leader>w"; group = "[W]orkspace"; }
               { __unkeyed-1 = "<leader>t"; group = "[T]oggle"; }
               { __unkeyed-1 = "<leader>h"; group = "Git [H]unk"; mode = [ "n" "v" ]; }
+              { __unkeyed-1 = "g"; group = "[G]oto"; }
             ];
           };
         };
