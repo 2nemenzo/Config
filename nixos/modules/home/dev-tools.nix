@@ -10,6 +10,10 @@
       rustc
       rustfmt
       clippy
+      zola
+      nodejs
+      stylua
+      nixfmt-rfc-style
     ];
 
     home.sessionPath = [
