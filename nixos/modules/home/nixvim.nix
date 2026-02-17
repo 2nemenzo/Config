@@ -144,6 +144,12 @@
           action = "<C-w><C-k>";
           options.desc = "Move focus to the upper window";
         }
+        {
+          mode = "n";
+          key = "-";
+          action = "<cmd>Oil<CR>";
+          options.desc = "Open file explorer (Oil)";
+        }
       ];
 
       # ========================================
@@ -358,6 +364,35 @@
               nix = [ "nixfmt" ];
               rust = [ "rustfmt" ];
               "_" = [ "trim_whitespace" ];
+            };
+          };
+        };
+
+        # ---- Oil (file manager) ----
+        oil = {
+          enable = true;
+          settings = {
+            columns = [ "icon" ];
+            view_options = {
+              show_hidden = true;
+            };
+            keymaps = {
+              "g?" = "actions.show_help";
+              "<CR>" = "actions.select";
+              "<C-v>" = "actions.select_vsplit";
+              "<C-x>" = "actions.select_split";
+              "<C-t>" = "actions.select_tab";
+              "<C-p>" = "actions.preview";
+              "<C-c>" = "actions.close";
+              "<C-r>" = "actions.refresh";
+              "-" = "actions.parent";
+              "_" = "actions.open_cwd";
+              "`" = "actions.cd";
+              "~" = "actions.tcd";
+              "gs" = "actions.change_sort";
+              "gx" = "actions.open_external";
+              "g." = "actions.toggle_hidden";
+              "g\\\\" = "actions.toggle_trash";
             };
           };
         };
