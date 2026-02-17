@@ -229,6 +229,16 @@
               enable = true;
               installCargo = false;
               installRustc = false;
+              settings = {
+                rust-analyzer = {
+                  inlayHints = {
+                    enable = true;
+                    chainingHints = { enable = true; };
+                    typeHints = { enable = true; };
+                    parameterHints = { enable = true; };
+                  };
+                };
+              };
             };
             nixd.enable = true;
           };
@@ -377,6 +387,21 @@
         vim.keymap.set('n', '<leader>sn', function()
           require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
         end, { desc = '[S]earch [N]eovim files' })
+
+        -- Enable inlay hints by default
+        vim.api.nvim_create_autocmd('LspAttach', {
+          callback = function(args)
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            if client and client.server_capabilities.inlayHintProvider then
+              vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+            end
+          end,
+        })
+
+        -- Toggle inlay hints with <leader>th
+        vim.keymap.set('n', '<leader>th', function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        end, { desc = '[T]oggle Inlay [H]ints' })
       '';
     };
   };
