@@ -1,23 +1,26 @@
 { ... }:
 
 {
-  flake.modules.homeManager.dev-tools = { pkgs, config, ... }: {
-    home.packages = with pkgs; [
-      ripgrep
-      fd
-      unzip
-      cargo
-      rustc
-      rustfmt
-      clippy
-      zola
-      nodejs
-      stylua
-      nixfmt-rfc-style
-    ];
+  flake.modules.homeManager.dev-tools =
+    { pkgs, config, ... }:
+    {
+      home.packages = with pkgs; [
+        ripgrep
+        fd
+        unzip
+        cargo
+        rustc
+        rustfmt
+        clippy
+        zola
+        nodejs
+        stylua
+        nixfmt-rfc-style
+        obsidian
+      ];
 
-    home.sessionPath = [
-      "${config.home.homeDirectory}/.cargo/bin"
-    ];
-  };
+      home.sessionPath = [
+        "${config.home.homeDirectory}/.cargo/bin"
+      ];
+    };
 }
